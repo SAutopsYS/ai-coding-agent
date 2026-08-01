@@ -1,0 +1,40 @@
+# Default agent configuration.
+
+llm:
+  # openai | anthropic | gemini | mock
+  # Prefer env vars in production:
+  #   AGENT_LLM_PROVIDER=gemini
+  #   AGENT_LLM_API_KEY=...
+  #   AGENT_LLM_MODEL=gemini-3.6-flash
+  provider: gemini
+  model: gemini-3.6-flash
+  temperature: 0.2
+  max_retries: 3
+
+limits:
+  max_steps: 30
+  max_files_touched: 20
+  max_read_bytes: 200000
+  max_write_bytes: 200000
+  max_repair_attempts: 1
+
+ignore_globs:
+  - "**/.git/**"
+  - "**/node_modules/**"
+  - "**/dist/**"
+  - "**/build/**"
+  - "**/__pycache__/**"
+  - "**/.venv/**"
+
+shell:
+  enabled: true
+  timeout_seconds: 60
+  allowlist:
+    - "npm test"
+    - "npm install"
+    - "npm run lint"
+    - "pytest"
+    - "python -m pytest"
+
+git:
+  allow_commit: false

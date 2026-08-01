@@ -1,0 +1,16 @@
+.env
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.idea/
+.vscode/
+*.egg-info/
+dist/
+build/
+*.pyc
+*.pyo
+.coverage
+htmlcov/
+agent-report.json
